@@ -1,0 +1,114 @@
+.body {
+    background-color: #bbb;
+    height: 100%;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    height: 100px;
+    box-shadow: 2px 3px grey;
+    position: relative;
+}
+
+.left {
+    width: 25%;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+}
+
+.right {
+    width: 70%;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column.left>p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    margin-right: 10px;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+}
+
+span {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.release {
+    color: green;
+    margin-right: 5px;
+}
+
+.center {
+    text-align: center;
+    width: 25%;
+}
+
+.vertical-line {
+    display: inline-block;
+    border-left: 1px solid #ccc;
+    margin: 0 10px;
+    height: 80px;
+}
+
+.openproactive {
+    color: orange;
+}
+
+.externalhiring {
+    color: blue;
+}
+
+.awaitingrpm {
+    color: rgb(197, 197, 15);
+}
+
+.colleaguesproposed {
+    color: rgb(197, 197, 15);
+}
+
+.second {
+    background-color: #fff;
+    width: 96.3%;
+    border-radius: 5px;
+}
+
+.second>.row>.center {
+    width: 20% !important;
+}
+
+.rrtaggedtome {
+    color: orange;
+}
+
+.openproactiverr {
+    color: orange;
+}
+
+.openreactiverr {
+    color: blue;
+}
+
+.openreactiverr {
+    color: rgb(197, 197, 15);
+}
+
+.onholdrr {
+    color: rgb(197, 197, 15);
+}

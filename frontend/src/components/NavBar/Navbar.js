@@ -2,6 +2,7 @@ import logo from "../../images/logo.png";
 import { MenuItems } from './MenuItems';
 import { Button } from "../Button";
 import './Navbar.css';
+import { List, XCircle } from 'react-bootstrap-icons';
 
 const { useEffect, Component } = require("react")
 
@@ -19,7 +20,7 @@ class Navbar extends Component {
                 <img className="navbar-logo" src={logo} alt='logo' />
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fa fa-times' : 'fa fa-bars'}>
-                        {this.state.clicked ? 'x' : '-'}
+                        {this.state.clicked ? <XCircle /> : <List />}
                     </i>
                 </div>
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
