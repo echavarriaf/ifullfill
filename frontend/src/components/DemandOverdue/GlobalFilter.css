@@ -1,0 +1,17 @@
+.demand {
+    margin: 10px;
+}
+
+input {
+    width: 220px;
+    height: 30px;
+    border-radius: 50px;
+    outline: none;
+}
+
+.search {
+    border: 1px solid #9b9b9b;
+    box-shadow: 1px 2px 6px #0000001a;
+    letter-spacing: 0px;
+    padding: 9px 8px;
+}
