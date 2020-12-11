@@ -84,6 +84,12 @@ const Dashboard = (props) => {
                     </div>
                 </div>
             </div>
+            
+            <div className="row">
+                <div className="column table">
+
+                </div>
+            </div>
         </div>
     )
 }
