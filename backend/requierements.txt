@@ -1,5 +1,8 @@
 flask
 flask_cors
+flask-marshmallow
+marshmallow-alchemy
 pyjwt
 dnspython
 mysql-connector
+pymysql
