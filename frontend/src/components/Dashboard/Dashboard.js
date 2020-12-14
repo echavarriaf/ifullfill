@@ -1,5 +1,6 @@
 import "./Dashboard.css";
 import React from 'react'
+import { DemandOverdueTable } from "../DemandOverdue/DemandOverdueTable";
 
 const { useEffect, Component } = require("react")
 
@@ -84,10 +85,10 @@ const Dashboard = (props) => {
                     </div>
                 </div>
             </div>
-            
+
             <div className="row">
                 <div className="column table">
-
+                    <DemandOverdueTable />
                 </div>
             </div>
         </div>
