@@ -38,9 +38,14 @@
     left: 80px;
 }
 
+.beforeTable {
+    overflow-x: scroll;
+}
+
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 1000px;
+    height: 500px;
 }
 
 table td, table th {
@@ -75,6 +80,23 @@ table th, tfoot td {
     height: 20px;
     right: 0;
     top: 0;
+}
+
+table>tbody>tr>td[data-sticky-first-right-td] {
+    background-color: #949a9b !important;
+    z-index: 1 !important;
+}
+
+.actionsButtons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.actionsButtons>i>svg {
+    cursor: pointer !important;
+    background-color: transparent !important;
+    color: #2d36b9 !important;
 }
 
 .order>svg {

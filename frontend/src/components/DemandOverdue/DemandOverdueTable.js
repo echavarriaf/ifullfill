@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react';
 import './DemandOverdueTable.css';
-import { useTable, useSortBy, useGlobalFilter, usePagination, useRowSelect } from 'react-table';
+import { useTable, useSortBy, useGlobalFilter, usePagination, useRowSelect, useBlockLayout } from 'react-table';
+import { useSticky } from 'react-table-sticky';
 import MOCK_DATA from '../MOCK_DATA.json';
 import { COLUMNS } from './columns';
-import { CaretDownFill, CaretUpFill, ChevronBarExpand, CalendarWeek } from 'react-bootstrap-icons';
+import { CaretDownFill, CaretUpFill, ChevronBarExpand, CalendarWeek, PencilFill, TrashFill, JournalPlus } from 'react-bootstrap-icons';
 import { GlobalFilter } from './GlobalFilter';
 import { Checkbox } from './Checkbox';
 
@@ -52,7 +53,9 @@ export const DemandOverdueTable = () => {
                     ...columns
                 ]
             })
-        })
+        },
+        useBlockLayout,
+        useSticky)
 
     const { globalFilter } = state
     const { pageIndex, pageSize } = state
@@ -66,36 +69,37 @@ export const DemandOverdueTable = () => {
                 <p className="title">demand overdue</p>
             </div>
             <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
-            <table {...getTableProps()}>
-                <thead>
-                    {headerGroups.map((headerGroup) => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
-                            {headerGroup.headers.map((column) => (
-                                <th{...column.getHeaderProps(column.getSortByToggleProps())}>
-                                    {column.render('Header')}
-                                    <span className="order">
-                                        {column.isSorted ? (column.isSortedDesc ? <CaretDownFill /> : <CaretUpFill />) : <ChevronBarExpand />}
-                                    </span>
-                                </th>
-                            ))}
-                        </tr>
-                    ))}
-                </thead>
-                <tbody {...getTableBodyProps()}>
-                    {page.map((row) => {
-                        prepareRow(row)
-                        return (
-                            <tr {...row.getRowProps()}>
-                                {row.cells.map((cell) => {
-                                    return <td{...cell.getCellProps()}>
-                                        {cell.render('Cell')}
-                                    </td>
-                                })}
+            <div className="beforeTable">
+                <table {...getTableProps()}>
+                    <thead>
+                        {headerGroups.map((headerGroup) => (
+                            <tr {...headerGroup.getHeaderGroupProps()}>
+                                {headerGroup.headers.map((column) => (
+                                    <th{...column.getHeaderProps(column.getSortByToggleProps())}>
+                                        {column.render('Header')}
+                                        <span className="order">
+                                            {column.isSorted ? (column.isSortedDesc ? <CaretDownFill /> : <CaretUpFill />) : <ChevronBarExpand />}
+                                        </span>
+                                    </th>
+                                ))}
                             </tr>
-                        )
-                    })}
-                </tbody>
-                {/* // We don't need it due to pagination
+                        ))}
+                    </thead>
+                    <tbody {...getTableBodyProps()}>
+                        {page.map((row) => {
+                            prepareRow(row)
+                            return (
+                                <tr {...row.getRowProps()}>
+                                    {row.cells.map((cell) => {
+                                        return <td{...cell.getCellProps()}>
+                                            {cell.render('Cell')}
+                                        </td>
+                                    })}
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                    {/* // We don't need it due to pagination
                 // <tfoot>
                     //     {footerGroups.map(footerGroup => (
                 //         <tr{...footerGroup.getFooterGroupProps()}>
@@ -107,7 +111,8 @@ export const DemandOverdueTable = () => {
                 //         </tr>
                 //     ))}
                 // </tfoot> */}
-            </table>
+                </table>
+            </div>
             <div className="pagination">
                 <select value={pageSize} onChange={e => setPageSize(Number(e.target.value))}>
                     {[10, 25, 50].map((pageSize) => (

@@ -1,4 +1,7 @@
-import {format} from 'date-fns'
+import { format } from 'date-fns';
+import { JournalPlus, PencilFill, PersonPlusFill, TrashFill } from 'react-bootstrap-icons';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { useSticky } from 'react-table-sticky';
 // In case we have a field that is date
 // we just add a property Cell
 // {
@@ -7,6 +10,7 @@ import {format} from 'date-fns'
 //     accessor: 'date',
 //     Cell: ({value})=.{return format(new Date(value), 'dd/MM/yyyy')},
 // }
+
 
 export const COLUMNS = [
     {
@@ -43,5 +47,18 @@ export const COLUMNS = [
         Header: 'Location',
         Footer: 'Location',
         accessor: 'location',
+    },
+    {
+        Header: 'Actions',
+        Footer: 'Actions',
+        sticky: 'right',
+        Cell: () => (
+            <div className="actionsButtons">
+                <i data-toggle="tooltip" data-placement="top" title="Edit"><PencilFill /></i>
+                <i data-toggle="tooltip" data-placement="top" title="Delete"><TrashFill /></i>
+                <i data-toggle="tooltip" data-placement="top" title="Still don't know"><JournalPlus /></i>
+                <i data-toggle="tooltip" data-placement="top" title="Still don't know"><PersonPlusFill /></i>
+            </div>
+        )
     },
 ]
