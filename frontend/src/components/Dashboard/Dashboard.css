@@ -1,10 +1,14 @@
 .body {
-    background-color: #bbb;
+    background-color: #bbbbbb;
     height: 100%;
+    padding-left: 20px;
 }
 
 .row {
     display: flex;
+    flex-wrap: none !important;
+    margin-right: none !important;
+    margin-left: none !important;
 }
 
 .column {
@@ -57,7 +61,7 @@ span {
 
 .center {
     text-align: center;
-    width: 25%;
+    width: 23%;
 }
 
 .vertical-line {
@@ -90,7 +94,7 @@ span {
 }
 
 .second>.row>.center {
-    width: 20% !important;
+    width: 18% !important;
 }
 
 .rrtaggedtome {

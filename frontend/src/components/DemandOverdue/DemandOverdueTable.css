@@ -40,17 +40,26 @@
 
 .beforeTable {
     overflow-x: scroll;
+    width: 1300px !important;
 }
 
 table {
     border-collapse: collapse;
-    width: 1000px;
+    width: 1000px !important;
     height: 500px;
 }
 
 table td, table th {
     border: 1px solid #ddd;
     padding: 8px;
+}
+
+table td:nth-child(6), table th:nth-child(6) {
+    min-width: 300px !important;
+}
+
+table td:nth-child(1), table th:nth-child(1) {
+    max-width: 50px !important;
 }
 
 table tr {
@@ -131,26 +140,27 @@ table>tbody>tr>td[data-sticky-first-right-td] {
 .btn-previous, .btn-next {
     margin: 10px;
     width: 50px;
-    height: 20px;
     border-radius: 10px;
     outline: none;
     background: transparent;
     text-decoration: #2d36b9;
     text-transform: capitalize;
+    text-align: center;
+    align-content: center;
     font-weight: bold;
 }
 
 .btn-previous {
     position: absolute;
     right: 250px;
-    top: 9px;
+    top: 3px;
     /* transform: translateX(300%); */
 }
 
 .btn-next {
     position: absolute;
     right: 50px;
-    top: 9px;
+    top: 3px;
 }
 
 .btn-previous:hover:enabled, .btn-next:hover:enabled {
@@ -164,3 +174,5 @@ table>tbody>tr>td[data-sticky-first-right-td] {
     cursor: not-allowed;
     pointer-events: none;
 }
+
+.btn-previous, .btn-next {}

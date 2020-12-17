@@ -1,44 +1,49 @@
+import React, { useState } from "react";
 import logo from "../../images/logo.png";
-import { MenuItems } from './MenuItems';
-import { Button } from "../Button";
-import './Navbar.css';
-import { List, XCircle } from 'react-bootstrap-icons';
+import "./Navbar.css";
+import { Link } from "react-router-dom";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import { sidebarData } from "./MenuItems";
+import { IconContext } from "react-icons";
 
-const { useEffect, Component } = require("react")
+function Navbar() {
+  const [sidebar, setSidebar] = useState(false);
 
+  const showSidebar = () => setSidebar(!sidebar);
 
-class Navbar extends Component {
-    state = { clicked: false }
-
-    handleClick = () => {
-        this.setState({ clicked: !this.state.clicked })
-    }
-
-    render() {
-        return (
-            <nav className="NavbarItems">
-                <img className="navbar-logo" src={logo} alt='logo' />
-                <div className="menu-icon" onClick={this.handleClick}>
-                    <i className={this.state.clicked ? 'fa fa-times' : 'fa fa-bars'}>
-                        {this.state.clicked ? <XCircle /> : <List />}
-                    </i>
-                </div>
-                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-                    {MenuItems.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <a className={item.cName} href={item.url}>
-                                    {item.title}
-                                </a>
-                            </li>
-                        )
-                    })}
-                </ul>
-                <Button>Sign Up</Button>
-            </nav>
-        )
-    }
+  return (
+    <>
+      <IconContext.Provider
+        value={{ color: "#fff", width: "1rem", height: "1rem" }}
+      >
+        <div className="navbar">
+          <Link to="#" className="menu-bars">
+            <FaIcons.FaBars onClick={showSidebar} />
+          </Link>
+        </div>
+        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+          <ul className="nav-menu-items">
+            <li className="navbar-toggle">
+              <Link to="#" className="menu-bars-close">
+                <AiIcons.AiOutlineClose onClick={showSidebar} />
+              </Link>
+            </li>
+            {sidebarData.map((item, index) => {
+              return (
+                <li key={index} className={item.cName}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </IconContext.Provider>
+    </>
+  );
 }
-
 
 export default Navbar;

@@ -1,7 +1,6 @@
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 import { JournalPlus, PencilFill, PersonPlusFill, TrashFill } from 'react-bootstrap-icons';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
-import { useSticky } from 'react-table-sticky';
+
 // In case we have a field that is date
 // we just add a property Cell
 // {

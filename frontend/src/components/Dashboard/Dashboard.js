@@ -2,7 +2,7 @@ import "./Dashboard.css";
 import React from 'react'
 import { DemandOverdueTable } from "../DemandOverdue/DemandOverdueTable";
 
-const { useEffect, Component } = require("react")
+// const { useEffect, Component } = require("react")
 
 const Dashboard = (props) => {
     return (

@@ -1,0 +1,18 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+.col-md-4 {
+    margin-left: 15px;
+}
+
+.col-md-6 {
+    margin-right: 15px;
+}
+
+.locationTable {
+    width: 800px;
+    margin-right: 15px;
+    height: auto;
+}
+
+.locationTable>tbody>tr>td {
+    height: 20px !important;
+}

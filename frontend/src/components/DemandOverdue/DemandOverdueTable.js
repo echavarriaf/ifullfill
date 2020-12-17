@@ -4,7 +4,7 @@ import { useTable, useSortBy, useGlobalFilter, usePagination, useRowSelect, useB
 import { useSticky } from 'react-table-sticky';
 import MOCK_DATA from '../MOCK_DATA.json';
 import { COLUMNS } from './columns';
-import { CaretDownFill, CaretUpFill, ChevronBarExpand, CalendarWeek, PencilFill, TrashFill, JournalPlus } from 'react-bootstrap-icons';
+import { CaretDownFill, CaretUpFill, ChevronBarExpand, CalendarWeek } from 'react-bootstrap-icons';
 import { GlobalFilter } from './GlobalFilter';
 import { Checkbox } from './Checkbox';
 
