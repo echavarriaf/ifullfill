@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../images/logo.png";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
@@ -12,12 +12,32 @@ function Navbar() {
 
   const showSidebar = () => setSidebar(!sidebar);
 
+  useEffect(() => {
+    const navbar = document.getElementById("navbar");
+    let lastScroll = 0;
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll <= 0) {
+        navbar.style.top = "0";
+        return;
+      }
+
+      if (currentScroll > lastScroll) {
+        navbar.style.top = "-100px";
+      } else {
+        navbar.style.top = "0";
+      }
+
+      lastScroll = currentScroll;
+    });
+  }, []);
+
   return (
     <>
       <IconContext.Provider
         value={{ color: "#fff", width: "1rem", height: "1rem" }}
       >
-        <div className="navbar">
+        <div className="navbar" id="navbar">
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>

@@ -1,9 +1,15 @@
 .navbar {
+    /* position: -webkit-sticky !important; */
+    position: sticky !important;
+    top: 0;
+    z-index: 999;
     background-color: #060b26;
     height: 80px;
+    width: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
+    transition: top 0.5s;
 }
 
 .menu-bars {
