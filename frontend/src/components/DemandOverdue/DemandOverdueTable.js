@@ -19,14 +19,11 @@ import {
 } from "react-bootstrap-icons";
 import { GlobalFilter } from "./GlobalFilter";
 import { Checkbox } from "./Checkbox";
-// import { getRequestsInformation } from "../../services/requests";
 
 const API = "http://localhost:5000";
 
 const DemandOverdueTable = (props) => {
   const info = props.details.data;
-  console.log(props.details.data);
-  console.log(info);
   const data = useMemo(() => info, []);
 
   const columns = useMemo(() => COLUMNS, []);
@@ -138,13 +135,15 @@ const DemandOverdueTable = (props) => {
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {page.map((row) => {
+            {page.map((row, i) => {
               prepareRow(row);
               return (
-                <tr {...row.getRowProps()}>
+                <tr {...row.getRowProps()} data-key={row.id}>
                   {row.cells.map((cell) => {
                     return (
-                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                      <td data-key={cell.id} {...cell.getCellProps()}>
+                        {cell.render("Cell")}
+                      </td>
                     );
                   })}
                 </tr>
