@@ -10,7 +10,7 @@ import {
 } from "react-table";
 import { useSticky } from "react-table-sticky";
 import { COLUMNS } from "./columns";
-import MOCK_DATA from "../MOCK_DATA.json";
+// import MOCK_DATA from "../MOCK_DATA.json";
 import {
   CaretDownFill,
   CaretUpFill,
@@ -19,37 +19,40 @@ import {
 } from "react-bootstrap-icons";
 import { GlobalFilter } from "./GlobalFilter";
 import { Checkbox } from "./Checkbox";
-import { getRequestsInformation } from "../../services/requests";
+// import { getRequestsInformation } from "../../services/requests";
 
 const API = "http://localhost:5000";
 
-export const DemandOverdueTable = () => {
-  const [requestinformation, setRequestInformation] = useState({});
+const DemandOverdueTable = (props) => {
+  const info = props.details.data;
+  console.log(props.details.data);
+  console.log(info);
+  const data = useMemo(() => info, []);
 
   const columns = useMemo(() => COLUMNS, []);
   // const data = useMemo(() => MOCK_DATA, []);
 
-  const getRequests = async () => {
-    try {
-      const res = await fetch(`${API}/dashboard`);
-      if (!res.ok) {
-        throw Error(res.statusText);
-      }
-      const data = await res.json();
-      return data;
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  // const getRequests = async () => {
+  //   try {
+  //     const res = await fetch(`${API}/dashboard`);
+  //     if (!res.ok) {
+  //       throw Error(res.statusText);
+  //     }
+  //     const data = await res.json();
+  //     return data;
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
-  useEffect(() => {
-    getRequests().then((data) => setRequestInformation(data));
-    console.log(data);
-    console.log(requestinformation);
-  }, []);
+  // useEffect(() => {
+  //   getRequests().then((data) => setRequestInformation(data));
+  //   console.log(data);
+  //   console.log(requestinformation);
+  // }, []);
 
-  const data = useMemo(() => requestinformation, []);
-  console.log(data);
+  // const data = useMemo(() => requestinformation, []);
+  // console.log(data);
 
   const {
     getTableProps,
@@ -208,3 +211,5 @@ export const DemandOverdueTable = () => {
     </>
   );
 };
+
+export default DemandOverdueTable;

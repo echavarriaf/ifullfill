@@ -1,6 +1,7 @@
 import React from "react";
+import "./Loader.css";
 
-function ShowDetail() {
+function Loader() {
   return (
     <div className="loader center">
       <i className="fa fa-cog fa-spin" />
@@ -8,4 +9,4 @@ function ShowDetail() {
   );
 }
 
-export default ShowDetail;
+export default Loader;
