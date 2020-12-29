@@ -9,12 +9,12 @@
 
 .col-md-6 {
     margin-right: 15px;
-    width: 800px !important;
 }
 
 .locationTable {
-    width: 800px !important;
+    width: 800px;
     margin-right: 15px;
+    height: auto;
 }
 
 .locationTable>tbody>tr>td {

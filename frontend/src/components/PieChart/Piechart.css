@@ -1,0 +1,8 @@
+.chartjs-render-monitor {
+    height: 200px !important;
+    margin-top: 40px;
+}
+
+.chart {
+    height: 300px;
+}

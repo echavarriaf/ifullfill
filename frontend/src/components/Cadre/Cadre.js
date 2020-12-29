@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import "./Locations.css";
+import "./Cadre.css";
 
 const API = "http://localhost:5000";
 
-export const Locations = () => {
+export const Cadres = () => {
   const [name, setName] = useState("");
+  console.log(API);
 
-  const [locations, setLocations] = useState([]);
+  const [cadres, setCadres] = useState([]);
 
   const [editing, setEditing] = useState(false);
   const [id, setId] = useState("");
@@ -14,25 +15,25 @@ export const Locations = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!editing) {
-      const res = await fetch(`${API}/locations`, {
+      const res = await fetch(`${API}/cadres`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: name,
+          desc: name,
         }),
       });
       const data = await res.json();
       console.log(data);
     } else {
-      const res = await fetch(`${API}/locations/${id}`, {
+      const res = await fetch(`${API}/cadres/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: name,
+          desc: name,
         }),
       });
       const data = await res.json();
@@ -41,42 +42,40 @@ export const Locations = () => {
       setId("");
     }
 
-    await getLocations();
+    await getCadres();
 
     setName("");
   };
 
-  const getLocations = async () => {
-    const res = await fetch(`${API}/locations`);
+  const getCadres = async () => {
+    const res = await fetch(`${API}/cadres`);
     const data = await res.json();
-    setLocations(data);
+    setCadres(data);
   };
 
-
-  
   useEffect(() => {
-    getLocations();
+    getCadres();
   }, []);
 
-  const deleteLocation = async (id) => {
+  const deleteCadre = async (id) => {
     const userResponse = window.confirm("Are you sure you want to delete it?");
     if (userResponse) {
-      const res = await fetch(`${API}/locations/${id}`, {
+      const res = await fetch(`${API}/cadres/${id}`, {
         method: "DELETE",
       });
       await res.json();
-      await getLocations();
+      await getCadres();
     }
   };
 
-  const editLocation = async (id) => {
-    const res = await fetch(`${API}/locations/${id}`);
+  const editCadre = async (id) => {
+    const res = await fetch(`${API}/cadres/${id}`);
     const data = await res.json();
 
     setEditing(true);
     setId(id);
 
-    setName(data.location_description);
+    setName(data.desc);
   };
 
   return (
@@ -85,13 +84,13 @@ export const Locations = () => {
         <div className="col-md-4">
           <form onSubmit={handleSubmit} className="card card-body">
             <div className="form-group">
-              <label>Location Name</label>
+              <label>Cadre Description</label>
               <input
                 type="text"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
                 className="form-control"
-                placeholder="Introduce the name of the location"
+                placeholder="Introduce the name of the Cadre"
                 autoFocus
               />
             </div>
@@ -104,24 +103,24 @@ export const Locations = () => {
           <table className="locationTable">
             <thead>
               <tr>
-                <th>Location's Name</th>
+                <th>Cadre's Description</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              {locations.map((location) => (
-                <tr key={location.id}>
-                  <td>{location.location_description}</td>
+              {cadres.map((cadre) => (
+                <tr key={cadre.id}>
+                  <td>{cadre.desc}</td>
                   <td>
                     <button
                       className="btn btn-secondary btn-sm btn-block"
-                      onClick={() => editLocation(location.id)}
+                      onClick={() => editCadre(cadre.id)}
                     >
                       Edit
                     </button>
                     <button
                       className="btn btn-danger btn-sm btn-block"
-                      onClick={() => deleteLocation(location.id)}
+                      onClick={() => deleteCadre(cadre.id)}
                     >
                       Delete
                     </button>

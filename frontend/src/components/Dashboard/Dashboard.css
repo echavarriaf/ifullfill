@@ -124,3 +124,8 @@ span {
     border-radius: 5px;
     margin-top: 50px;
 }
+
+.column.chart {
+    background-color: #fff;
+    height: 300px;
+}

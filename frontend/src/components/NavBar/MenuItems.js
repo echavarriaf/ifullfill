@@ -20,4 +20,10 @@ export const sidebarData = [
     icon: <FaIcons.FaLocationArrow />,
     cName: "nav-text",
   },
+  {
+    title: "Cadres",
+    path: "/cadres",
+    icon: <FaIcons.FaBattleNet />,
+    cName: "nav-text",
+  },
 ];

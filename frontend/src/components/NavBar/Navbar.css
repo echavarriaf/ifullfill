@@ -7,9 +7,10 @@
     height: 80px;
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     transition: top 0.5s;
+    padding-bottom: 15px;
 }
 
 .menu-bars {
@@ -44,7 +45,7 @@
 
 .nav-text {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;
@@ -84,7 +85,7 @@
     width: 100%;
     height: 80px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
 }
 
