@@ -57,10 +57,20 @@ export const COLUMNS = [
     sticky: "right",
     Cell: () => (
       <div className="actionsButtons">
-        <i data-toggle="tooltip" data-placement="top" title="Edit">
+        <i
+          data-id="edit"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Edit"
+        >
           <PencilFill />
         </i>
-        <i data-toggle="tooltip" data-placement="top" title="Delete">
+        <i
+          id="delete"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Delete"
+        >
           <TrashFill />
         </i>
         <i data-toggle="tooltip" data-placement="top" title="Still don't know">
