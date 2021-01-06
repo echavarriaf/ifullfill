@@ -55,7 +55,7 @@ class Dashboard extends Component {
     console.log(details);
     return (
       <div className="body">
-        <div className="row">
+        {/* <div className="row">
           <div className="column left">
             <p>
               <span className="release">0</span> Resources due for release from
@@ -117,7 +117,7 @@ class Dashboard extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="row">
           <div className="column table">
